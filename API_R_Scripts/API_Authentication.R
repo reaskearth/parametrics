@@ -17,4 +17,4 @@ auth_token <- json$access_token
     'product-version' = product_version,
     'Authorization' = paste("Bearer", auth_token)
   )
-  
+

@@ -58,17 +58,17 @@ send_api_request <- function(lat, lon, index) {
     wind_speed_averaging_period = "1_minute",
     tag = ""  # Add tag if available
   )
-  
+
   # Send GET request with headers
   response <- GET(api_url, query = query_params, add_headers(headers))
-  
+
   # Convert the raw response to JSON format
   json_content <- rawToChar(response$content)
-  
+
   # Save the JSON content to a file in the output folder
   output_file <- paste0("output/metryc_tcwind_events/Idx_", index, ".json")
   write(json_content, file = output_file)
-  
+
   print(paste("Processed location index:", index))
 }
 
@@ -76,7 +76,7 @@ send_api_request <- function(lat, lon, index) {
 for (i in locations_dt$index) {
   lat <- locations_dt$lat[i]
   lon <- locations_dt$lon[i]
-  
+
   send_api_request(lat, lon, i)
 }
 
@@ -84,7 +84,7 @@ for (i in locations_dt$index) {
 extract_events <- function(index) {
   json_file <- paste0("output/metryc_tcwind_events/Idx_", index, ".json")
   event_data <- fromJSON(txt = json_file)
-  
+
   data.table(
     index = index,
     storm_name = event_data$features$properties$storm_name,
@@ -106,7 +106,7 @@ event_data_list <- lapply(locations_dt$index, extract_events)
 combined_event_data <- rbindlist(event_data_list, use.names = TRUE, fill = TRUE)
 
 # Merge extracted event data with location information
-final_data <- merge(combined_event_data, locations_dt[, c(setdiff(names(locations_dt), "index"), "index"), with = FALSE], 
+final_data <- merge(combined_event_data, locations_dt[, c(setdiff(names(locations_dt), "index"), "index"), with = FALSE],
                     by = "index", all.x = TRUE)
 
 # Save the final data to an Excel file
