@@ -34,7 +34,7 @@ setwd(working_directory)
 
 # Read location data from the CSV file. The CSV must have at least the two columns "lat" and "lon", 
 # but it can have additional columns such as id, address, name, tiv, limit etc.
-locations <- read_csv("locations.csv", show_col_types = FALSE)
+locations <- read_csv("example_locations.csv", show_col_types = FALSE)
 
 # Convert locations to a data.table and add an index column
 locations_dt <- as.data.table(locations)
