@@ -1,0 +1,3 @@
+id,lat,lon,ptf,limit,currency
+Nassau East,25.03,-77.28,client a,30000000,usd
+Nassau West,25.02,-77.53,client b,40000000,usd
