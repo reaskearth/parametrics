@@ -55,14 +55,16 @@ source("authentication.R")
 # Function to send API request and save the response
 deepcyc_tctrack_api_request <- function(lats, lons, index) {
   
-  query_params <- list(
-    lat = paste(lats, collapse=","),
-    lon = paste(lons, collapse=","),
+  params <- list(
     geometry = "polygon",
     time_horizon = "now",
     wind_speed_units = "mph",
     tag = ""  # Add tag if available
   )
+  
+  names(lats) <- as.list(rep("lat", length(lats)))
+  names(lons) <- as.list(rep("lon", length(lons)))
+  query_params <- c(params, lats, lons)
   
   # Send GET request with headers
   response <- GET(api_url, query = query_params, add_headers(headers))
@@ -87,7 +89,7 @@ for (i in polygons_dt$index) {
 
 # Function to extract storm event data from JSON files
 extract_events <- function(index) {
-  json_file <- paste0("output/deepcyc_tcwind_events/Idx_", index, ".json")
+  json_file <- paste0("output/deepcyc_tctrack_events/Idx_", index, ".json")
   event_data <- fromJSON(txt = json_file)
   
   data.table(
@@ -106,15 +108,15 @@ extract_events <- function(index) {
 }
 
 # Extract data from all JSON files and combine them into a single data table
-event_data_list <- lapply(locations_dt$index, extract_events)
+event_data_list <- lapply(polygons_dt$index, extract_events)
 combined_event_data <- rbindlist(event_data_list, use.names = TRUE, fill = TRUE)
 
 # Merge extracted event data with location information
-final_data <- merge(combined_event_data, locations_dt[, c(setdiff(names(locations_dt), "index"), "index"), with = FALSE], 
+final_data <- merge(combined_event_data, polygons_dt[, c(setdiff(names(polygons_dt), "index"), "index"), with = FALSE], 
                     by = "index", all.x = TRUE)
 
 # Save the final data to an Excel file
-output_excel_file <- "output/Reask_DeepCyc_Windspeeds.xlsx"
+output_excel_file <- "output/Reask_DeepCyc_TcTrack_Windspeeds.xlsx"
 write.xlsx(final_data, output_excel_file)
 
 print(paste("Data saved to:", output_excel_file))
