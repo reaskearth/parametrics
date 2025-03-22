@@ -1,4 +1,4 @@
-# Reask Historical and Probabilistic Wind At Location (WaL) Data
+# Historical and Probabilistic Wind At Location (WaL) Data from the Reask API
 
 This repository contains R scripts that retrieve location-level wind event data via the Reask API, process the responses to extract event data, construct a pivot table, and save the results in CSV and Parquet formats. The repository also contains an authentication file to be completed with your personal credentials, and a sample `locations.csv` file.
 
