@@ -4,6 +4,7 @@
 #
 # Author: David Schmid / david@reask.earth
 # Global Head of Data Products at Reask
+# Zurich, March 2025
 #
 # Description:
 #   This master script sets common parameters for querying both the historical (Metryc) and 
