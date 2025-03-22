@@ -1,19 +1,28 @@
-# Reask API Wind At Location (WaL) Hazard Data
+# Reask Historical and Probabilistic Wind At Location (WaL) Data
 
-This repository contains R scripts that retrieve location-level wind event data via the Reask API, process the responses to extract key metrics, construct a pivot table, and save the results in CSV and Parquet formats. The repository also includes a sample authentication file and a sample `locations.csv` file.
+This repository contains R scripts that retrieve location-level wind event data via the Reask API, process the responses to extract event data, construct a pivot table, and save the results in CSV and Parquet formats. The repository also contains an authentication file to be completed with your personal credentials, and a sample `locations.csv` file.
 
-A project file (`.Rproj`) is included. When opened in RStudio, it will automatically set the working directory to the repository folder, ensuring that relative paths work correctly.
+To do in short:
+- Clone or download this repo.
+- Install R and RStudio.
+- Open the project file `.Rproj` in RStudio.
+- Open the `API_Authentication.r` script and enter your personal credentials.
+- Open and run the script `API_WaL_Master.r`.
 
 ---
 
 ## Overview
 
-- **API_deepcyc_tcwinds_events.R:**  
-  Retrieves data from the Reask API, applies filtering, and builds a pivot table.
-- **API_Authentication.R:**  
-  Authenticates with the Reask API using your credentials and sets up request headers.
+- **API_WaL_Master.r:**  
+  Master file to set the hazard parameters and run both the Metryc and DeepCyc queries.
+- **API_metryc_tcwinds_events.r:**  
+  Retrieves historical data from the Reask API based on DeepCyc.
+- **API_deepcyc_tcwinds_events.r:**  
+  Retrieves probabilistic data from the Reask API based on DeepCyc.
+- **API_Authentication.r:**  
+  Authenticates with the Reask API using your credentials.
 - **locations.csv:**  
-  A sample CSV file containing location data (latitude, longitude, and an ID). Modify this file with your actual locations.
+  A sample CSV file containing location data (id, lat, lon, and limit). Modify this file with your actual locations. lat and lon must be included, id and limit is not required.
 - **Output Files:**  
   The processed results and meta data are saved as CSV and Parquet files.
 - **API_WaL.Rproj:**  
