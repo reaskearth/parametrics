@@ -15,7 +15,7 @@ A project file (`.Rproj`) is included. When opened in RStudio, it will automatic
 - **locations.csv:**  
   A sample CSV file containing location data (latitude, longitude, and an ID). Modify this file with your actual locations.
 - **Output Files:**  
-  The processed results are saved as CSV and Parquet files.
+  The processed results and meta data are saved as CSV and Parquet files.
 - **API_WaL.Rproj:**  
   R project file to set your working directory.
 
