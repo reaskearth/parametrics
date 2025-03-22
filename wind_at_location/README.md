@@ -1,4 +1,4 @@
-# Reask API Wind At Location Data
+# Reask API Wind At Location (WaL) Hazard Data
 
 This repository contains R scripts that retrieve location-level wind event data via the Reask API, process the responses to extract key metrics, construct a pivot table, and save the results in CSV and Parquet formats. The repository also includes a sample authentication file and a sample `locations.csv` file.
 
@@ -16,6 +16,8 @@ A project file (`.Rproj`) is included. When opened in RStudio, it will automatic
   A sample CSV file containing location data (latitude, longitude, and an ID). Modify this file with your actual locations.
 - **Output Files:**  
   The processed results are saved as CSV and Parquet files.
+- **API_WaL.Rproj:**  
+  R project file to set your working directory.
 
 ---
 
