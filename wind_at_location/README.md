@@ -2,7 +2,7 @@
 
 This repository contains R scripts that retrieve location-level wind event data via the Reask API, process the responses to extract event data, construct a pivot table, and save the results in CSV and Parquet formats. The repository also contains an authentication file to be completed with your personal credentials, and a sample `locations.csv` file.
 
-## To do in short:
+## Quick Start:
 - Clone or download this repo.
 - Install R and RStudio.
 - Open the project file `.Rproj` in RStudio.
