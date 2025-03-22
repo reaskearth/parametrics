@@ -11,7 +11,9 @@
 #
 ##############################################################################################
 
-# Set location file and hazard parameters
+###############################################################################
+#                           User Input Parameterisation                       #
+###############################################################################
 locations_file                 <- "locations.csv"   # File must include lat, lon. The id and limit is not required.
 wind_speed_units               <- "mph"             # kph, mph, ms, kts
 terrain_correction             <- "open_water"      # open_water, open_terrain, full_terrain_gust
