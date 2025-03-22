@@ -18,10 +18,10 @@
 #                           User Input Parameterisation                       #
 ###############################################################################
 # Hazard parameters:
-wind_speed_units               <- "mph"          # kph, mph, ms, kts
+wind_speed_units               <- "kph"          # kph, mph, ms, kts
 terrain_correction             <- "open_water"   # open_water, open_terrain, full_terrain_gust
 wind_speed_averaging_period    <- "1_minute"     # 1_minute (for open_water & open_terrain), 3_seconds (for full_terrain_gust)
-wind_speed_threshold           <- 80             # Reduce the size of the results by filtering out unneeded wind speed values
+wind_speed_threshold           <- 100             # Reduce the size of the results by filtering out unneeded wind speed values
 
 # Modify these default parameters if necessary:
 product_version                <- "DeepCyc-2.0.7"
