@@ -3,29 +3,21 @@
 #  Email: david@reask.earth
 #
 #  Description:
-#    This script retrieves location-level wind event data via the Reask API,
-#    processes CSV responses to extract key metrics, constructs a pivot table,
-#    and saves the results in CSV and Parquet formats. It also extracts and saves
-#    metadata.
+#    This script retrieves probabilistic location-level wind event data from DeepCyc
+#    via the Reask API, processes CSV responses to extract key metrics, constructs a pivot table,
+#    and saves the results in CSV and Parquet formats. It also extracts and saves metadata.
 #
-#  Note:
-#    For a full list of available API parameters and further details, please refer 
-#    to the API Swagger documentation: https://api.reask.earth/v2/docs.
-#    Access restrictions may apply based on your credentials.
+# Dependencies:
+#   - API_WaL_Master.R: defines parameters
+#   - Libraries: data.table, arrow, httr, here
+#   - Input: locations.csv (CSV with at least "lat" and "lon" columns)
 ###############################################################################
 
 ###############################################################################
 #                           User Input Parameterisation                       #
 ###############################################################################
-# Hazard parameters:
-wind_speed_units               <- "kph"          # kph, mph, ms, kts
-terrain_correction             <- "open_water"   # open_water, open_terrain, full_terrain_gust
-wind_speed_averaging_period    <- "1_minute"     # 1_minute (for open_water & open_terrain), 3_seconds (for full_terrain_gust)
-wind_speed_threshold           <- 100             # Reduce the size of the results by filtering out unneeded wind speed values
-
 # Modify these default parameters if necessary:
 product_version                <- "DeepCyc-2.0.7"
-locations_file                 <- "locations.csv"         # Example CSV file with location data
 api_url                        <- "https://api.reask.earth/v2/deepcyc/tcwind/events"
 
 # Output file names:
@@ -33,15 +25,6 @@ output_pivot_csv               <- "results/deepcyc_tcwind_events_pivot.csv"
 output_long_csv                <- "results/deepcyc_tcwind_events_long.csv"
 output_parquet                 <- "results/deepcyc_tcwind_events_pivot.parquet"
 output_meta_csv                <- "results/deepcyc_tcwind_events_meta.csv"
-
-
-###############################################################################
-#                             Library Imports                                 #
-###############################################################################
-library(httr)       # For API requests
-library(data.table) # Fast data processing
-library(arrow)      # For Parquet export
-library(here)       # For relative file paths
 
 # Set working directory relative to the repository root and load API authentication
 # (Make sure you have copied your API_Authentication.R into the repository root)
@@ -186,3 +169,5 @@ if (!is.null(meta_data)) {
 } else {
   message("No metadata was captured from the CSV responses.")
 }
+
+cat("\nDeepCyc data extraction completed\n")
