@@ -1,5 +1,8 @@
 # Historical and Probabilistic Wind At Location (WaL) Data from the Reask API
 
+**Author:** David Schmid, Global Head of Data Products at Reask  
+**Email:** david@reask.earth
+
 This repository contains R scripts that retrieve location-level wind event data via the Reask API, process the responses to extract event data, construct a pivot table, and save the results in CSV and Parquet formats. The repository also contains an authentication file to be completed with your personal credentials, and a sample `locations.csv` file.
 
 ## Quick Start:
@@ -36,14 +39,6 @@ This repository contains R scripts that retrieve location-level wind event data 
 - Recommended IDE: [RStudio](https://www.rstudio.com/)
 - **Git** (if you plan to clone or pull updates from the repository)
 
-### Required R Packages
-
-Install the following packages if you haven't already:
-
-```r
-install.packages(c("httr", "data.table", "arrow", "here"))
-```
-
 ---
 
 ## Installation / Setup
@@ -55,13 +50,13 @@ Follow these steps to set up the project on your machine:
    - **Windows Users:**  
      Open the Command Prompt and navigate to the folder where you want to store the repository. For example:
      ```cmd
-     cd "C:\Users\DavidSchmid\Documents\MyProjects"
+     cd "C:\Users\DavidSchmid\Documents\Reask\API"
      ```
      
    - **Mac Users:**  
      Open the Terminal and navigate to the folder where you want to store the repository. For example:
      ```bash
-     cd "/Users/yourusername/Documents/MyProjects"
+     cd "/Users/yourusername/Documents/Reask/API"
      ```
 
 2. **Clone or Download the Repository:**
@@ -71,7 +66,7 @@ Follow these steps to set up the project on your machine:
      ```bash
      git clone https://github.com/reaskearth/parametrics.git
      ```
-     This creates a new folder (e.g. `parametrics`) containing the repository.
+     This creates a new folder `parametrics` containing the repository.
      
    - **Download:**  
      Alternatively, click the **"Download ZIP"** button on the GitHub repository page, unzip the folder, and move it to your desired location.
@@ -86,11 +81,14 @@ Follow these steps to set up the project on your machine:
 
    ```
    repository-root/
-   ├── API_Authentication.R         # Authentication file (see below)
-   ├── API_deepcyc_tcwinds_events.R # Main processing script
+   ├── API_WaL_Master.r             # Master file to run
+   ├── API_Authentication.r         # Authentication file
+   ├── API_deepcyc_tcwinds_events.r # API query for DeepCyc
+   ├── API_metryc_tcwinds_events.r  # API query for DeepCyc
    ├── locations.csv                # Sample locations file
-   ├── API_WaL.Rproj                # RStudio project file (sets working directory)
+   ├── API_WaL.Rproj                # RStudio project file
    ├── README.md                    # This file
+   ├── results                      # A folder will be created to save results
    ```
 
 5. **Configure Your Environment:**
@@ -99,9 +97,7 @@ Follow these steps to set up the project on your machine:
      Open `API_Authentication.R` and replace the placeholder `"username"` and `"password"` with your actual API credentials.  
           
    - **Adjust Parameters:**  
-     Open **API_deepcyc_tcwinds_events.R** and review the **User Input Parameterisation** section. Adjust parameters such as:
-     - `product_version`
-     - Hazard parameters: Wind speed units, terrain correction, averaging period, and threshold
+     Open **API_WaL_Master.r** and review the **User Input Parameterisation** section. Adjust parameters such as wind speed units, terrain correction, averaging period, threshold and location file.
 
 ---
 
@@ -111,15 +107,15 @@ Follow these steps to set up the project on your machine:
    In RStudio, open the `.Rproj` file from the repository root. This automatically sets the working directory.
    
 2. **Run the Main Script:**  
-   Execute the **API_deepcyc_tcwinds_events.R** script to process the data. The script will:
+   Execute the **API_WaL_Master.r** script to process the data. The script will:
    - Load location data from `locations.csv`
    - Authenticate with the API
-   - Retrieve data for each location
+   - Retrieve historical and probabilstic data for each location
    - Apply filtering and construct a pivot table
    - Save outputs as CSV and Parquet files
 
-3. **Review Output:**  
-   The processed files (e.g., `deepcyc_tcwind_events_pivot.csv`) will be saved in the repository folder. Open them with your preferred software to review the results.
+3. **Further Process Output:**  
+   The processed files (e.g., `deepcyc_tcwind_events_pivot.csv`) will be saved in the `results` folder. Open them with your preferred software to process the results.
 
 ---
 
