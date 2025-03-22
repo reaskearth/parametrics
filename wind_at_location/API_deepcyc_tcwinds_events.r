@@ -29,10 +29,10 @@ locations_file                 <- "locations.csv"         # Example CSV file wit
 api_url                        <- "https://api.reask.earth/v2/deepcyc/tcwind/events"
 
 # Output file names:
-output_pivot_csv               <- "deepcyc_tcwind_events_pivot.csv"
-output_long_csv                <- "deepcyc_tcwind_events_long.csv"
-output_parquet                 <- "deepcyc_tcwind_events_pivot.parquet"
-output_meta_csv                <- "deepcyc_tcwind_events_meta.csv"
+output_pivot_csv               <- "results/deepcyc_tcwind_events_pivot.csv"
+output_long_csv                <- "results/deepcyc_tcwind_events_long.csv"
+output_parquet                 <- "results/deepcyc_tcwind_events_pivot.parquet"
+output_meta_csv                <- "results/deepcyc_tcwind_events_meta.csv"
 
 
 ###############################################################################
