@@ -17,16 +17,16 @@
 ###############################################################################
 #                           User Input Parameterisation                       #
 ###############################################################################
-# Modify these parameters as needed:
-product_version                <- "DeepCyc-2.0.7"
-locations_file                 <- "locations.csv"         # Example CSV file with location data
-api_url                        <- "https://api.reask.earth/v2/deepcyc/tcwind/events"
-
-# Additional API parameters:
+# Hazard parameters:
 wind_speed_units               <- "mph"
 terrain_correction             <- "open_water"
 wind_speed_averaging_period    <- "1_minute"
 wind_speed_threshold           <- 80
+
+# Modify these default parameters if necessary:
+product_version                <- "DeepCyc-2.0.7"
+locations_file                 <- "locations.csv"         # Example CSV file with location data
+api_url                        <- "https://api.reask.earth/v2/deepcyc/tcwind/events"
 
 # Output file names:
 output_pivot_csv               <- "deepcyc_tcwind_events_pivot.csv"
