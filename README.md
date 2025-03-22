@@ -1,4 +1,5 @@
 # parametrics
-This scripts are made available for free to query the Reask API specifically for parametric insurance workflows. The data retrieved from the API is intended solely for use in parametric insurance. Any commercial use of Reask data requires a formal agreement with us. The use of these scripts is at your own risk, and we assume no liability for any errors, inaccuracies, or potential issues that may arise from these scripts.
 
-The swagger documentation site can help for the parametrisation of the API queries for the endpoints included in the scripts: https://api.reask.earth/v2/docs
+The scripts in this repository are made available **for free under the ROA (Reask Open Analytics) offering** to facilitate work with Reask’s hazard data for **parametric insurance structuring and pricing**. Any commercial use of Reask data requires a formal agreement with Reask. The use of these scripts is at your own risk, and Reask assumes no liability for any errors, inaccuracies, or potential issues that may arise from these scripts.
+
+> **Note:** You must have valid Reask API credentials to query the data. If you do not have credentials, please contact Reask for access. Be sure to enter your credentials in the `API_Authentication.R` file (or equivalent) before running the scripts.
