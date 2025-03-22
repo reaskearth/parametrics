@@ -18,11 +18,19 @@ terrain_correction             <- "open_water"      # open_water, open_terrain, 
 wind_speed_averaging_period    <- "1_minute"        # 1_minute (for open_water & open_terrain), 3_seconds (for full_terrain_gust)
 wind_speed_threshold           <- 80                # Filtering out unneeded wind speed values
 
-# Load any common libraries if needed
-library(httr)       # For API requests
-library(data.table) # Fast data processing
-library(arrow)      # For Parquet export
-library(here)       # For relative file paths
+# List of required packages
+required_packages <- c("httr", "data.table", "arrow", "here")
+
+# Identify any packages that are not yet installed
+new_packages <- required_packages[!(required_packages %in% installed.packages()[, "Package"])]
+
+# Install missing packages if necessary
+if (length(new_packages)) {
+  install.packages(new_packages)
+}
+
+# Load all required packages
+invisible(suppressPackageStartupMessages(lapply(required_packages, library, character.only = TRUE)))
 
 # Run the Historical API script
 source(here("API_metryc_tcwinds_events.r"))
