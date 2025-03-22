@@ -33,7 +33,10 @@ if (length(new_packages)) {
 }
 
 # Load all required packages
-invisible(suppressPackageStartupMessages(lapply(required_packages, library, character.only = TRUE)))
+library(httr)       # For API requests
+library(data.table) # Fast data processing
+library(arrow)      # For Parquet export
+library(here)       # For relative file paths
 
 # Run the Historical API script
 source(here("API_metryc_tcwinds_events.r"))
