@@ -36,7 +36,7 @@ install.packages(c("httr", "data.table", "arrow", "here", "jsonlite"))
    - **Clone:**  
      Open your terminal or command prompt and run:
      ```bash
-     git clone https://github.com/yourusername/repository-name.git
+     git clone https://github.com/reaskearth/parametrics.git
      ```
      This creates a local copy of the repository.
 
