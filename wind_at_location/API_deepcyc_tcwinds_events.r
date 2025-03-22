@@ -170,6 +170,11 @@ pivot_table <- dcast(
 ###############################################################################
 #                             Output Saving                                   #
 ###############################################################################
+# Ensure the 'results' folder exists; if not, create it
+if (!dir.exists("results")) {
+  dir.create("results", recursive = TRUE)
+}
+
 # Save the pivot table and the long-format data
 fwrite(pivot_table, output_pivot_csv)
 fwrite(all_data, output_long_csv)
