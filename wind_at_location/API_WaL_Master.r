@@ -39,7 +39,7 @@ library(arrow)      # For Parquet export
 library(here)       # For relative file paths
 
 # Run the Historical API script
-source(here("API_metryc_tcwinds_events.r"))
+source(here("API_metryc_tcwinds_events_WaL.r"))
 
 # Run the Probabilistic API script
-source(here("API_deepcyc_tcwinds_events.r"))
+source(here("API_deepcyc_tcwinds_events_WaL.r"))
