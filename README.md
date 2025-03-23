@@ -35,7 +35,7 @@ This repository contains R scripts that retrieve location-level wind and track d
   A sample CSV file containing location data (id, lat, lon, and limit). Modify this file with your actual locations. lat and lon must be included, id and limit is not required.
 - **Output Files:**  
   The processed results and meta data are saved as Excel, CSV and Parquet files.
-- **API_WaL.Rproj:**  
+- **API.Rproj:**  
   R project file to set your working directory.
 
 ---
