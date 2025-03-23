@@ -1,10 +1,10 @@
 ##############################################################################################
-# Reask Metryc Historical API Query Script
+# Reask Wind as Location API Query Script for Historical Wind Data (based on Metryc)
 ##############################################################################################
 #
 # Author: David Schmid / david@reask.earth
 # Global Head of Data Products at Reask
-# Last update: 22th March 2025
+# Last update: Zurich, 23th March 2025
 #
 # Description:
 #   This script queries the Reask Metryc Historical API to retrieve tropical cyclone wind 
@@ -14,7 +14,6 @@
 #
 # Dependencies:
 #   - API_WaL_Master.R: defines parameters
-#   - Libraries: data.table, arrow, httr, here
 #   - Input: locations.csv (CSV with at least "lat" and "lon" columns)
 ##############################################################################################
 
