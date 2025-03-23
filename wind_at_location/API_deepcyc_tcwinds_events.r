@@ -1,15 +1,19 @@
-###############################################################################
-#  Author: David Schmid, Global Head of Data Products
-#  Email: david@reask.earth
+##############################################################################################
+# Reask Wind as Location API Query Script for Probabilistic Wind Data (based on DeepCyc)
+##############################################################################################
+#
+# Author: David Schmid / david@reask.earth
+# Global Head of Data Products at Reask
+# Last update: Zurich, 23th March 2025
 #
 #  Description:
 #    This script retrieves probabilistic location-level wind event data from DeepCyc
-#    via the Reask API, processes CSV responses to extract key metrics, constructs a pivot table,
-#    and saves the results in CSV and Parquet formats. It also extracts and saves metadata.
+#    via the Reask API endpoint /deepcyc/tcwind/events, processes CSV responses 
+#    to extract hazard data, constructs a pivot table, and saves the results 
+#    in CSV and Parquet formats. It also extracts and saves metadata.
 #
 # Dependencies:
 #   - API_WaL_Master.R: defines parameters
-#   - Libraries: data.table, arrow, httr, here
 #   - Input: locations.csv (CSV with at least "lat" and "lon" columns)
 ###############################################################################
 
