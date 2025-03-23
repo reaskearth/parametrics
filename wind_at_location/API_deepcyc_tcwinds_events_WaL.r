@@ -26,10 +26,10 @@ api_url                        <- "https://api.reask.earth/v2/deepcyc/tcwind/eve
 agency                         <- "USA" # USA, BOM (USA is NHC, CPHC and JTWC)
 
 # Output file names:
-output_pivot_csv               <- "results/deepcyc_tcwind_events_pivot.csv"
-output_long_csv                <- "results/deepcyc_tcwind_events_long.csv"
-output_parquet                 <- "results/deepcyc_tcwind_events_pivot.parquet"
-output_meta_csv                <- "results/deepcyc_tcwind_events_meta.csv"
+output_pivot_csv               <- "results/deepcyc_tcwind_events_WaL.csv"
+output_long_csv                <- "results/deepcyc_tcwind_events_long_WaL.csv"
+output_parquet                 <- "results/deepcyc_tcwind_events_long_WaL.parquet"
+output_meta_csv                <- "results/deepcyc_tcwind_events_meta_WaL.csv"
 
 # Set working directory relative to the repository root and load API authentication
 # (Make sure you have copied your API_Authentication.R into the repository root)
