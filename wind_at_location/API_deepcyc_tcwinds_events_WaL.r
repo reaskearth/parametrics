@@ -33,7 +33,7 @@ output_meta_csv                <- "results/deepcyc_tcwind_events_meta.csv"
 
 # Set working directory relative to the repository root and load API authentication
 # (Make sure you have copied your API_Authentication.R into the repository root)
-source(here("API_Authentication.R"))
+source(here("API_Authentication.r"))
 
 
 ###############################################################################
