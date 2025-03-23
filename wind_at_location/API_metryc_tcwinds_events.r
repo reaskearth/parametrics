@@ -24,6 +24,7 @@
 # Modify these default parameters if necessary:
 product_version                <- "Metryc Historical v1.0.5"
 api_url                        <- "https://api.reask.earth/v2/metryc/tcwind/events"
+agency                         <- "USA" # USA, BOM
 
 # Output file names:
 output_pivot_csv               <- "results/metryc_tcwind_events_pivot.csv"
@@ -54,7 +55,8 @@ query_params <- list(
   wind_speed_units            = wind_speed_units,
   terrain_correction          = terrain_correction,
   wind_speed_averaging_period = wind_speed_averaging_period,
-  format                      = "csv"
+  format                      = "csv",
+  agency                      = agency
 )
 
 # Start time for progress tracking
