@@ -6,7 +6,7 @@ library(jsonlite)
 api_url_token <- "https://api.reask.earth/v2/token"
 
 # enter username and password
-resp <- POST(api_url_token, body = list(username = "david@reask.earth", password = "Goldbi_13"))
+resp <- POST(api_url_token, body = list(username = "username", password = "password"))
 json_cont <- rawToChar(resp$content)
 json <- fromJSON(json_cont)
 
