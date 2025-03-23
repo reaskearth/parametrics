@@ -19,6 +19,7 @@
 # Modify these default parameters if necessary:
 product_version                <- "DeepCyc-2.0.7"
 api_url                        <- "https://api.reask.earth/v2/deepcyc/tcwind/events"
+agency                         <- "USA" # USA, BOM (USA is NHC, CPHC and JTWC)
 
 # Output file names:
 output_pivot_csv               <- "results/deepcyc_tcwind_events_pivot.csv"
@@ -51,7 +52,8 @@ query_params <- list(
   wind_speed_units            = wind_speed_units,
   terrain_correction          = terrain_correction,
   wind_speed_averaging_period = wind_speed_averaging_period,
-  format                      = "csv"
+  format                      = "csv",
+  agency                      = agency
 )
 
 # Start time for progress tracking
