@@ -9,7 +9,7 @@
 # Description:
 #   This script queries the Reask Metryc Historical API to retrieve tropical cyclone wind 
 #   event data for specified latitude and longitude locations. The retrieved CSV responses 
-#   are processed to extract key metrics (storm_name, storm_id, storm_year, wind_speed, and location_id), 
+#   are processed to extract key metrics (storm_name, storm_id, storm_year, wind_speed, and location_idx), 
 #   and then compiled into a pivot table. Additionally, metadata is extracted and saved.
 #
 # Dependencies:
@@ -111,7 +111,7 @@ for (i in 1:num_locations) {
     storm_name  = csv_data$storm_name,
     storm_year  = csv_data$storm_year,
     storm_id    = csv_data$storm_id,
-    location_id = i,
+    location_idx = i,
     wind_speed  = round(csv_data$wind_speed, 0)
   )
   
@@ -141,7 +141,7 @@ all_data <- rbindlist(all_data_list, use.names = TRUE, fill = TRUE)
 # Create pivot table: pivot long-format data to wide format
 pivot_table <- dcast(
   all_data, 
-  storm_name + storm_year + storm_id ~ location_id, 
+  storm_name + storm_year + storm_id ~ location_idx, 
   value.var = "wind_speed", 
   fill = NA
 )
