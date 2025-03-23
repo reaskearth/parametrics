@@ -26,10 +26,10 @@ api_url                        <- "https://api.reask.earth/v2/metryc/tcwind/even
 agency                         <- "USA" # USA, BOM
 
 # Output file names:
-output_pivot_csv               <- "results/metryc_tcwind_events_pivot.csv"
-output_long_csv                <- "results/metryc_tcwind_events_long.csv"
-output_parquet                 <- "results/metryc_tcwind_events_pivot.parquet"
-output_meta_csv                <- "results/metryc_tcwind_events_meta.csv"
+output_pivot_csv               <- "results/metryc_tcwind_events_WaL.csv"
+output_long_csv                <- "results/metryc_tcwind_events_long_WaL.csv"
+output_parquet                 <- "results/metryc_tcwind_events_long_WaL.parquet"
+output_meta_csv                <- "results/metryc_tcwind_events_meta_WaL.csv"
 
 # Set working directory relative to the repository root and load API authentication
 # (Make sure you have copied your API_Authentication.R into the repository root)
