@@ -115,7 +115,7 @@ for (i in 1:num_locations) {
   extracted_data <- data.table(
     event_id    = csv_data$event_id,
     year_id     = csv_data$year_id,
-    location_id = i,
+    location_idx = i,
     wind_speed  = round(csv_data$wind_speed, 0)
   )
   
@@ -145,7 +145,7 @@ all_data <- rbindlist(all_data_list, use.names = TRUE, fill = TRUE)
 # Create pivot table: pivot long-format data to wide format
 pivot_table <- dcast(
   all_data, 
-  event_id + year_id ~ location_id, 
+  event_id + year_id ~ location_idx, 
   value.var = "wind_speed", 
   fill = NA
 )
