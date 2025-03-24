@@ -18,14 +18,14 @@
 #
 # Dependencies:
 #   - Input: A CSV file "locations_CIC.csv" with columns for 'loc_id', 'name', 'lat', 'lon',
-#            and one or more radius columns (e.g., "radius_1_[km]", "radius_2_[km]", etc.).
-#            The radius needs to be in km.
+#            and one or more radius columns (e.g., "radius_1_[km]", "radius_2_[km]", etc.),
+#            saved in the working directory. The radius needs to be in km.
 #   - API_CIC_Master.R: defines parameters
 ###############################################################################
 #                           User Input Parameterisation                       #
 ###############################################################################
 product_version                <- "DeepCyc-2.0.7"
-locations_file                 <- "locations_CIC.csv"  # Updated input file in working directory
+locations_file                 <- "locations_CIC.csv"
 api_url                        <- "https://api.reask.earth/v2/deepcyc/tctrack/events"
 
 # API query parameters (commented: defined in master file):
@@ -140,8 +140,6 @@ for (i in 1:nrow(locations)) {
       meta_data <<- data.table(
         scenario = Events$header$scenario,
         time_horizon = Events$header$time_horizon,
-        geometry_type = Events$header$query_geometry$type,
-        coordinates = paste(unlist(Events$header$query_geometry$coordinates), collapse = ", "),
         map_projection = Events$header$map_projection_used_for_geometric_calculations,
         wind_speed_units = Events$header$wind_speed_units,
         wind_speed_averaging_period = Events$header$wind_speed_averaging_period,
