@@ -24,7 +24,6 @@
 ###############################################################################
 #                           User Input Parameterisation                       #
 ###############################################################################
-locations_file                 <- "locations_CIC.csv"
 api_url                        <- "https://api.reask.earth/v2/metryc/tctrack/events"
 
 # API query parameters (commented: defined in master file):
