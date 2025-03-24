@@ -17,10 +17,7 @@
 #   a flexible processing of the data.
 #
 # Dependencies:
-#   - Input: A CSV file "locations_CIC.csv" with columns for 'loc_id', 'name', 'lat', 'lon',
-#            and one or more radius columns (e.g., "radius_1_[km]", "radius_2_[km]", etc.),
-#            saved in the working directory. The radius needs to be in km.
-#            The radius needs to be in km.
+#   - Input: CSV file "locations_CIC.csv" saved in working direcory.
 #   - API_CIC_Master.R: defines parameters
 ##############################################################################################
 
