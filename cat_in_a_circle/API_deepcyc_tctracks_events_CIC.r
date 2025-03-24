@@ -17,15 +17,12 @@
 #   format allowing a flexible processing of the data.
 #
 # Dependencies:
-#   - Input: A CSV file "locations_CIC.csv" with columns for 'loc_id', 'name', 'lat', 'lon',
-#            and one or more radius columns (e.g., "radius_1_[km]", "radius_2_[km]", etc.),
-#            saved in the working directory. The radius needs to be in km.
+#   - Input: CSV file "locations_CIC.csv" saved in working direcory.
 #   - API_CIC_Master.R: defines parameters
 ###############################################################################
 #                           User Input Parameterisation                       #
 ###############################################################################
 product_version                <- "DeepCyc-2.0.7"
-locations_file                 <- "locations_CIC.csv"
 api_url                        <- "https://api.reask.earth/v2/deepcyc/tctrack/events"
 
 # API query parameters (commented: defined in master file):
