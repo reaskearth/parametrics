@@ -18,7 +18,8 @@
 #
 # Dependencies:
 #   - Input: A CSV file "locations_CIC.csv" with columns for 'loc_id', 'name', 'lat', 'lon',
-#            and one or more radius columns (e.g., "radius_1_[km]", "radius_2_[km]", etc.).
+#            and one or more radius columns (e.g., "radius_1_[km]", "radius_2_[km]", etc.),
+#            saved in the working directory. The radius needs to be in km.
 #            The radius needs to be in km.
 #   - API_CIC_Master.R: defines parameters
 ##############################################################################################
@@ -26,7 +27,7 @@
 ###############################################################################
 #                           User Input Parameterisation                       #
 ###############################################################################
-locations_file                 <- "locations_CIC.csv"  # Updated input file in working directory
+locations_file                 <- "locations_CIC.csv"
 api_url                        <- "https://api.reask.earth/v2/metryc/tctrack/events"
 
 # API query parameters (commented: defined in master file):
@@ -43,7 +44,7 @@ output_csv                     <- "results/metryc_tctracks_events_long_CIC.csv"
 #                             Library Imports                                 #
 ###############################################################################
 required_packages <- c("data.table", "jsonlite", "dplyr", "glue", "here", "httr", "openxlsx")
-# Note: readxl and writexl are removed since we are now reading CSV files and using openxlsx.
+
 new_packages <- required_packages[!(required_packages %in% installed.packages()[, "Package"])]
 if (length(new_packages)) {
   install.packages(new_packages)
@@ -68,6 +69,7 @@ meta_data <- NULL
 
 # Read locations from the CSV file in the working directory
 locations <- fread(locations_file)
+
 # Append loc_idx column and move it to the beginning (i.e., before loc_id)
 locations[, loc_idx := .I]
 cols_order <- c("loc_idx", setdiff(names(locations), "loc_idx"))
@@ -144,8 +146,6 @@ for (i in 1:nrow(locations)) {
       meta_data <<- data.table(
         scenario = Events$header$scenario,
         time_horizon = Events$header$time_horizon,
-        geometry_type = Events$header$query_geometry$type,
-        coordinates = paste(unlist(Events$header$query_geometry$coordinates), collapse = ", "),
         map_projection = Events$header$map_projection_used_for_geometric_calculations,
         wind_speed_units = Events$header$wind_speed_units,
         wind_speed_averaging_period = Events$header$wind_speed_averaging_period,
