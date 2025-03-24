@@ -232,5 +232,5 @@ writeData(wb, sheet = "meta", x = locations, startRow = 4, startCol = 1, colName
 # Save the workbook
 saveWorkbook(wb, file = output_xlsx, overwrite = TRUE)
 
-print("Processing Metryc complete! Results saved in the 'results' folder.")
+print("Processing historical tracks complete! Results saved in the 'results' folder.")
 
