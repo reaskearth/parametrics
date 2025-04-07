@@ -155,6 +155,8 @@ pivot_table <- dcast(
   value.var = "wind_speed", 
   fill = NA
 )
+# Order by year_id
+setorder(pivot_table, -year_id)
 
 ###############################################################################
 #                             Output Saving                                   #
