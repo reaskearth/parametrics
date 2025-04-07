@@ -16,7 +16,7 @@
 #                           User Input Parameterisation                       #
 ###############################################################################
 locations_file                 <- "locations.csv"   # File must include lat, lon. The id and limit is not required.
-wind_speed_units               <- "mph"             # kph, mph, ms, kts
+wind_speed_units               <- "kph"             # kph, mph, ms, kts
 terrain_correction             <- "open_water"      # open_water, open_terrain, full_terrain_gust
 wind_speed_averaging_period    <- "1_minute"        # 1_minute (for open_water & open_terrain), 3_seconds (for full_terrain_gust)
 wind_speed_threshold           <- 80                # Filtering out unneeded wind speed values
