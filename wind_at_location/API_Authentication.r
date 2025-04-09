@@ -22,7 +22,7 @@ api_url_token <- "https://api.reask.earth/v2/token"
 
 # Send a POST request with your credentials to obtain the access token.
 # Replace "username" and "password" with your actual login details.
-resp <- POST(api_url_token, body = list(username = "david@reask.earth", password = "Sergio_80!"))
+resp <- POST(api_url_token, body = list(username = "username", password = "password"))
 
 # Convert the raw response content (bytes) into a character string
 json_cont <- rawToChar(resp$content)
