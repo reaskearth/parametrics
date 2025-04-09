@@ -21,7 +21,7 @@
 #                           User Input Parameterisation                       #
 ###############################################################################
 # Modify these default parameters if necessary:
-product_version                <- "Metryc Historical v1.0.5"
+product_version                <- " Metryc-1.0.5"
 api_url                        <- "https://api.reask.earth/v2/metryc/tcwind/events"
 
 # Output file names:
