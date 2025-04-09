@@ -21,7 +21,6 @@
 #                           User Input Parameterisation                       #
 ###############################################################################
 # Modify these default parameters if necessary:
-product_version                <- " Metryc-1.0.5"
 api_url                        <- "https://api.reask.earth/v2/metryc/tcwind/events"
 
 # Output file names:
@@ -31,9 +30,6 @@ output_parquet                 <- "results/metryc_tcwind_events_long_WaL.parquet
 output_meta_csv                <- "results/metryc_tcwind_events_meta_WaL.csv"
 
 # Set working directory relative to the repository root and load API authentication
-# (Make sure you have copied your API_Authentication.R into the repository root)
-source(here("API_Authentication.r"))
-
 
 ###############################################################################
 #                           Main Processing Loop                              #
@@ -69,7 +65,7 @@ for (i in 1:num_locations) {
   query_params$lon <- locations$lon[i]
   
   # Perform API request with added authentication headers
-  response <- GET(api_url, query = query_params, add_headers(headers))
+  response <- GET(api_url, query = query_params, add_headers(metryc_headers))
   
   # Check response status: if not 200, log and skip current location
   if (status_code(response) != 200) {
