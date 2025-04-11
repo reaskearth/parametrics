@@ -96,7 +96,7 @@ send_api_request <- function(lat, lon, tag, radius_km, loc_idx, radius_ID) {
   )
   
   # Send GET request with authentication headers
-  response <- GET(api_url, query = query_params, add_headers(headers))
+  response <- GET(api_url, query = query_params, add_headers(metryc_headers))
   
   # Check response status; if unsuccessful, log and return NULL
   if (http_status(response)$category != "Success") {
