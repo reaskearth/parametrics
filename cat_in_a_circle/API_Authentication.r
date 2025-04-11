@@ -13,15 +13,15 @@ json <- fromJSON(json_cont)
 auth_token <- json$access_token
 
 # Check if product_version is defined
-if (exists("product_version")) {
-  headers <- c(
-    'accept' = 'application/json',
-    'product-version' = product_version,
-    'Authorization' = paste("Bearer", auth_token)
-  )
-} else {
-  headers <- c(
-    'accept' = 'application/json',
-    'Authorization' = paste("Bearer", auth_token)
-  )
-}
+metryc_headers <- c(
+  'accept' = 'application/json',
+  'product-version' = metryc_product_version,
+  'Authorization' = paste("Bearer", auth_token)
+)
+
+# Construct the headers for deepcyc endpoints.
+deepcyc_headers <- c(
+  'accept' = 'application/json',
+  'product-version' = deepcyc_product_version,
+  'Authorization' = paste("Bearer", auth_token)
+)
