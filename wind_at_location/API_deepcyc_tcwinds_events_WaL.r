@@ -53,7 +53,8 @@ query_params <- list(
   terrain_correction          = terrain_correction,
   wind_speed_averaging_period = wind_speed_averaging_period,
   format                      = "csv",
-  agency                      = agency
+  agency                      = agency,
+  min_wind_speed              = wind_speed_threshold
 )
 
 # Start time for progress tracking
@@ -96,15 +97,15 @@ for (i in 1:num_locations) {
     next
   }
   
-  # ------------------------------ Filtering ------------------------------
-  # Apply wind_speed threshold filtering
-  csv_data <- csv_data[wind_speed >= wind_speed_threshold]
-  # If no rows remain after filtering, skip this location
-  if (nrow(csv_data) == 0) {
-    file.remove(csv_file)
-    next
-  }
-  # -------------------------------------------------------------------------
+#  # ------------------------------ Filtering ------------------------------
+#  # Apply wind_speed threshold filtering
+#  csv_data <- csv_data[wind_speed >= wind_speed_threshold]
+#  # If no rows remain after filtering, skip this location
+#  if (nrow(csv_data) == 0) {
+#    file.remove(csv_file)
+#    next
+#  }
+#  # -------------------------------------------------------------------------
   
   # On the first valid CSV response, capture metadata (all columns except these)
   if (is.null(meta_data)) {
