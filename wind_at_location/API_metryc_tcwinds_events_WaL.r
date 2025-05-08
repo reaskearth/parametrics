@@ -50,7 +50,8 @@ query_params <- list(
   terrain_correction          = terrain_correction,
   wind_speed_averaging_period = wind_speed_averaging_period,
   format                      = "csv",
-  agency                      = agency_metryc
+  agency                      = agency_metryc,
+  min_wind_speed              = wind_speed_threshold
 )
 
 # Start time for progress tracking
