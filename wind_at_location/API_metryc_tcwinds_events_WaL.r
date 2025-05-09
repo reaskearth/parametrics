@@ -143,6 +143,9 @@ pivot_table <- dcast(
   fill = NA
 )
 
+# remove NA rows
+pivot_table <- pivot_table[rowSums(is.na(pivot_table)) < ncol(pivot_table)]
+
 # Order by storm_year
 setorder(pivot_table, -storm_year)
 
