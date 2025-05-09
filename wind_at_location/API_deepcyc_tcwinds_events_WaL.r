@@ -152,6 +152,10 @@ pivot_table <- dcast(
   value.var = "wind_speed", 
   fill = NA
 )
+
+# remove NA rows
+pivot_table <- pivot_table[rowSums(is.na(pivot_table)) < ncol(pivot_table)]
+
 # Order by year_id
 setorder(pivot_table, -year_id)
 
