@@ -19,7 +19,7 @@ locations_file                 <- "locations_CIC.csv"   # Locations with loc_id,
 wind_speed_units               <- "kph"             # kph, mph, ms, kts
 wind_speed_averaging_period    <- "1_minute"        # 1_minute (for open_water & open_terrain), 3_seconds (for full_terrain_gust)
 wind_speed_threshold           <- 80                # Filtering out unneeded wind speed values
-metryc_product_version         <- "Metryc-1.0.5"    # Metryc-1.0.5, Metryc-1.0.6 (1.0.6 with extended coverage over sea)
+metryc_product_version         <- "Metryc-1.0.5"    # Metryc-1.0.5 is default version.
 deepcyc_product_version        <- "DeepCyc-2.0.7"
 
 ###############################################################################
