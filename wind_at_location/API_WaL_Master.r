@@ -21,7 +21,7 @@ terrain_correction             <- "open_water"      # open_water, open_terrain, 
 wind_speed_averaging_period    <- "1_minute"        # 1_minute (for open_water & open_terrain), 3_seconds (for full_terrain_gust)
 wind_speed_threshold           <- 0                 # Filtering out unneeded wind speed values
 agency_metryc                  <- "USA"             # USA, BOM
-metryc_product_version         <- "Metryc-1.0.5"    # Metryc-1.0.5, Metryc-1.0.6 (1.0.6 with extended coverage over sea)
+metryc_product_version         <- "Metryc-1.0.5"    # Metryc-1.0.5 is default.
 deepcyc_product_version        <- "DeepCyc-2.0.7"
 
 # List of required packages
